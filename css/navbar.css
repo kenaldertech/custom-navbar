@@ -1,0 +1,273 @@
+.custom-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 10px 20px;
+}
+
+.custom-navbar.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* ==== LOGO FIX ==== */
+.navbar-logo {
+  flex-shrink: 0; /* evita que se deforme en flex */
+  max-height: 60px;
+}
+
+.navbar-logo img {
+  display: block;
+  height: auto;
+  max-height: 50px;  /* altura máxima del logo */
+  max-width: 180px;  /* ancho máximo del logo */
+  width: auto;       /* mantiene proporción */
+  object-fit: contain;
+}
+
+/* ==== MENU ==== */
+.navbar-menu {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+  color: #ff5722; /* hover color for menu links */
+}
+
+/* ==== Custom Button with Cool Hover Animation ==== */
+.navbar-button {
+  position: relative;
+  padding: 8px 18px;
+  border: 2px solid currentColor;
+  border-radius: 5px;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+/* Border animation horizontal (top/bottom) */
+.navbar-button::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 0;
+  height: 100%;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transition: width 0.3s ease;
+}
+
+/* Border animation vertical (left/right) */
+.navbar-button::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 0;
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transition: height 0.3s ease;
+}
+
+/* Hover animation */
+.navbar-button:hover::before {
+  width: 100%;
+}
+
+.navbar-button:hover::after {
+  height: 100%;
+}
+
+.navbar-button:hover {
+  color: #fff; /* text becomes white */
+  background: #ff5722; /* background fill color */
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+/* ==== Social Icons ==== */
+.navbar-socials a {
+  margin-left: 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-socials a:hover {
+  color: #ff5722;
+  transform: scale(1.2);
+}
+
+
+
+
+.custom-navbar img {
+  max-height: 50px !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+}
+
+.custom-navbar .navbar-logo img {
+  max-height: 50px !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* ==== Burger Menu ==== */
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    background: inherit;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .navbar-menu.active {
+    display: flex;
+  }
+  .burger-menu {
+    display: block;
+  }
+}
+
+/* ==== FINAL LOGO FIX ==== */
+.custom-navbar .navbar-logo img {
+  max-height: 50px !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* Hide site title / identity text */
+.site-title,
+.site-branding,
+header .site-header {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Optional: reset background so no black bar shows */
+header {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* === ANIMACIÓN PARA TODOS LOS LINKS DEL MENÚ === */
+.custom-navbar .navbar-menu a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .navbar-menu a::before,
+.custom-navbar .navbar-menu a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: all 0.3s ease;
+}
+
+.custom-navbar .navbar-menu a::before {
+  top: 0;
+  left: 0;
+}
+
+.custom-navbar .navbar-menu a::after {
+  bottom: 0;
+  right: 0;
+}
+
+.custom-navbar .navbar-menu a:hover::before {
+  width: 100%;
+}
+
+.custom-navbar .navbar-menu a:hover::after {
+  width: 100%;
+}
+
+/* También dibujamos verticales para que sea "cuadro" */
+.custom-navbar .navbar-menu a span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 0;
+  background: currentColor;
+  transition: height 0.3s ease;
+}
+
+.custom-navbar .navbar-menu a:hover span {
+  height: 100%;
+}
+
+/* ==== MENÚ HAMBURGUESA ==== */
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    background: inherit; /* fondo igual al navbar */
+    position: absolute;
+    top: 70px; /* separa más el menú del icono */
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+  }
+
+  .navbar-menu a {
+    color: inherit;
+    background: rgba(0,0,0,0.7); /* fondo oscuro detrás de letras */
+    margin: 5px 0;
+    padding: 10px 15px;
+    border-radius: 4px;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+}
