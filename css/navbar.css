@@ -271,3 +271,26 @@ header {
     display: block;
   }
 }
+
+
+/* ==== NAVBAR FIX ==== */
+.custom-navbar {
+  position: fixed;       /* menú fijo siempre arriba */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999!important;         /* asegura que quede por encima */
+  background: #fff;      /* fondo sólido */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* sombra suave */
+}
+
+/* Ajuste del body para que no tape contenido */
+body {
+  padding-top: 70px; /* igual a la altura del navbar */
+}
+
+.site-header {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+

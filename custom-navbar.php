@@ -115,13 +115,16 @@ class CustomNavbarPlugin {
 
         echo "<nav class='custom-navbar $sticky' style='background:$bg_color; color:$text_color;'>";
 
-        // ==== LOGO ====
-        if ($logo) {
-            echo "<div class='navbar-logo'>
-                    <img src='".esc_url($logo)."' alt='logo' 
-                         style='max-height:50px; width:auto; height:auto; display:block;'>
-                  </div>";
-        }
+// ==== LOGO ====
+if ($logo) {
+    echo "<div class='navbar-logo'>
+            <a href='" . esc_url(home_url('/')) . "'>
+                <img src='" . esc_url($logo) . "' alt='logo' 
+                     style='max-height:50px; width:auto; height:auto; display:block;'>
+            </a>
+          </div>";
+}
+
 
         // ==== NAV MENU ====
         wp_nav_menu([
